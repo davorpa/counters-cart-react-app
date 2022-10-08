@@ -16,7 +16,7 @@ class App extends Component {
     render() {
         return (
             <React.Fragment>
-                <NavBar />
+                <NavBar badge={this.getBadgeValue()} />
                 <main className="container">
                     <Counters
                         data={this.state.data}
@@ -28,6 +28,10 @@ class App extends Component {
                 </main>
             </React.Fragment>
         );
+    }
+
+    getBadgeValue() {
+        return this.state.data.filter((item) => item.value > 0).length;
     }
 
     handleIncrement = (item) => {
