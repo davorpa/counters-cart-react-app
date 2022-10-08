@@ -14,6 +14,14 @@ class Counters extends Component {
     render() {
         return (
             <div className={ this.getComponentClassName() }>
+                <header>
+                    <button
+                        className="btn btn-primary btn-sm-m-2"
+                        onClick={ this.handleReset }
+                    >
+                        Reset
+                    </button>
+                </header>
                 { this.renderItems() }
             </div>
         );
@@ -38,6 +46,12 @@ class Counters extends Component {
     handleDelete = (id) => {
         let { data } = this.state;
         data = data.filter(item => item.id !== id);
+        this.setState({ data });
+    }
+
+    handleReset = () => {
+        let { data } = this.state;
+        data = data.map(item => ({ ...item, value: 0 }));
         this.setState({ data });
     }
 }
