@@ -38,8 +38,28 @@ class Counters extends Component {
         return data.map((item) => (
             <Counter key={ item.id }
                 data={ item }
-                onDelete={ this.handleDelete } />
+                onDelete={ this.handleDelete }
+                onIncrement={ this.handleIncrement }
+                onDecrement={ this.handleDecrement } />
         ));
+    }
+
+    handleIncrement = (item) => {
+        let { data } = this.state;
+        const index = data.indexOf(item);
+        data = [...data];
+        data[index] = { ...item };
+        data[index].value++;
+        this.setState({ data });
+    }
+
+    handleDecrement = (item) => {
+        let { data } = this.state;
+        const index = data.indexOf(item);
+        data = [...data];
+        data[index] = { ...item };
+        data[index].value--;
+        this.setState({ data });
     }
 
     handleDelete = ({ id }) => {
