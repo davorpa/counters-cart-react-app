@@ -14,12 +14,13 @@ class App extends Component {
     };
 
     render() {
+        let { data } = this.state;
         return (
             <React.Fragment>
                 <NavBar badge={this.getBadgeValue()} />
                 <main className="container">
                     <Counters
-                        data={this.state.data}
+                        data={data}
                         onReset={this.handleReset}
                         onIncrement={this.handleIncrement}
                         onDecrement={this.handleDecrement}

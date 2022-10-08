@@ -1,13 +1,13 @@
 import React from "react";
 
-const NavBar = (props) => {
+const NavBar = ({ badge }) => {
     return (
         <nav className="navbar navbar-light bg-light">
             <span className="navbar-brand mb-0 h1">
                 Navbar
-                {props.badge !== undefined && (
+                {badge !== undefined && (
                     <span className="badge badge-pill badge-secondary m-2">
-                        {props.badge}
+                        {badge}
                     </span>
                 )}
             </span>
