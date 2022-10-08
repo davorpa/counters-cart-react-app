@@ -2,22 +2,14 @@ import React, { Component } from 'react';
 import Counter from './counter';
 
 class Counters extends Component {
-    state = {
-        data: [
-            {id: 1, value: 4},
-            {id: 2, value: 0},
-            {id: 3, value: 0},
-            {id: 4, value: 0},
-        ],
-    };
 
     render() {
         return (
             <div className={ this.getComponentClassName() }>
                 <header>
                     <button
-                        className="btn btn-primary btn-sm-m-2"
-                        onClick={ this.handleReset }
+                        className="btn btn-primary btn-sm m-2"
+                        onClick={ this.props.onReset }
                     >
                         Reset
                     </button>
@@ -29,49 +21,19 @@ class Counters extends Component {
 
     getComponentClassName() {
         const classes = ["counters"];
-        this.state.data.length === 0 && classes.push("no-data");
+        this.props.data.length === 0 && classes.push("no-data");
         return classes.join(" ");
     }
 
     renderItems() {
-        const { data } = this.state;
+        const { data } = this.props;
         return data.map((item) => (
             <Counter key={ item.id }
                 data={ item }
-                onDelete={ this.handleDelete }
-                onIncrement={ this.handleIncrement }
-                onDecrement={ this.handleDecrement } />
+                onDelete={ this.props.onDelete }
+                onIncrement={ this.props.onIncrement }
+                onDecrement={ this.props.onDecrement } />
         ));
-    }
-
-    handleIncrement = (item) => {
-        let { data } = this.state;
-        const index = data.indexOf(item);
-        data = [...data];
-        data[index] = { ...item };
-        data[index].value++;
-        this.setState({ data });
-    }
-
-    handleDecrement = (item) => {
-        let { data } = this.state;
-        const index = data.indexOf(item);
-        data = [...data];
-        data[index] = { ...item };
-        data[index].value--;
-        this.setState({ data });
-    }
-
-    handleDelete = ({ id }) => {
-        let { data } = this.state;
-        data = data.filter((item) => item.id !== id);
-        this.setState({ data });
-    }
-
-    handleReset = () => {
-        let { data } = this.state;
-        data = data.map((item) => ({ ...item, value: 0 }));
-        this.setState({ data });
     }
 }
 
