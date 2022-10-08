@@ -37,21 +37,20 @@ class Counters extends Component {
         const { data } = this.state;
         return data.map((item) => (
             <Counter key={ item.id }
-                id={ item.id }
-                value={ item.value }
+                data={ item }
                 onDelete={ this.handleDelete } />
         ));
     }
 
-    handleDelete = (id) => {
+    handleDelete = ({ id }) => {
         let { data } = this.state;
-        data = data.filter(item => item.id !== id);
+        data = data.filter((item) => item.id !== id);
         this.setState({ data });
     }
 
     handleReset = () => {
         let { data } = this.state;
-        data = data.map(item => ({ ...item, value: 0 }));
+        data = data.map((item) => ({ ...item, value: 0 }));
         this.setState({ data });
     }
 }
