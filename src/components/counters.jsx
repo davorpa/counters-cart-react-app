@@ -16,6 +16,9 @@ class Counters extends Component {
                         Reset
                     </button>
                 </header>
+                {data.length === 0 && (
+                    <p className="no-data-msg">Empty results!</p>
+                )}
                 {this.renderItems()}
             </div>
         );

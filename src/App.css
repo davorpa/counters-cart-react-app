@@ -16,6 +16,7 @@ body {
     background-color: #282c34;
     border: 0 dashed #333;
     border-width: 0 2px;
+    color: #fff;
     min-height: 92.5vh;
     display: flex;
     flex-direction: column;
