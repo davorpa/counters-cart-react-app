@@ -17,8 +17,13 @@ class App extends Component {
         let { data } = this.state;
         return (
             <React.Fragment>
-                <NavBar badge={this.getBadgeValue()} />
-                <main className="container">
+                <header className="App-header">
+                    <NavBar
+                        className="App-navbar"
+                        badge={this.getBadgeValue()}
+                    />
+                </header>
+                <main className="App-main container">
                     <Counters
                         data={data}
                         onReset={this.handleReset}

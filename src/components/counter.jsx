@@ -9,13 +9,13 @@ class Counter extends Component {
                     {this.formatValue()}
                 </span>
                 <button
-                    className="btn btn-secondary btn-sm m-1"
+                    className="btn btn-secondary btn-sm"
                     onClick={() => onIncrement(data)}
                 >
                     Increment
                 </button>
                 <button
-                    className="btn btn-secondary btn-sm m-1"
+                    className="btn btn-secondary btn-sm"
                     disabled={data.value === 0}
                     onClick={() => onDecrement(data)}
                 >
@@ -23,7 +23,7 @@ class Counter extends Component {
                 </button>
                 {onDelete && (
                     <button
-                        className="btn btn-danger btn-sm m-2"
+                        className="btn btn-danger btn-sm"
                         onClick={() => onDelete(data)}
                     >
                         Delete
@@ -34,14 +34,16 @@ class Counter extends Component {
     }
 
     getComponentClassName() {
-        return "counters-item";
+        const { value } = this.props.data;
+        const classes = ["counters-item", "d-flex", "flex-row", "flex-nowrap"];
+        value === 0 && classes.push("none");
+        return classes.join(" ");
     }
 
     getBadgeClassName() {
         const { value } = this.props.data;
         const classes = ["badge"];
         classes.push(value === 0 ? "badge-warning" : "badge-primary");
-        classes.push("m-2");
         return classes.join(" ");
     }
 

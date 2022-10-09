@@ -1,0 +1,41 @@
+.App-counters {
+    min-width: 300px;
+}
+
+.App-counters.no-data {
+}
+
+.App-counters > header {
+    text-align: left;
+}
+
+.App-counters > header .btn {
+    min-width: 4rem;
+    margin: 0.5rem;
+}
+
+.App-counters > .counters-item {
+}
+
+.App-counters > .counters-item.none {
+}
+
+.App-counters > .counters-item .badge {
+    min-width: 4rem;
+    margin: 0.5rem;
+    height: 100%;
+    text-align: right;
+    padding: 0.6rem 1rem;
+}
+
+.App-counters > .counters-item .btn {
+    margin: 0.25rem 0.5rem;
+}
+.App-counters > .counters-item .btn.btn-secondary {
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+}
+
+.App-counters > .counters-item.none .badge {
+    text-align: center;
+}
